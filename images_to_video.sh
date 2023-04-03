@@ -28,6 +28,6 @@ command -v ffmpeg >/dev/null 2>&1 || {
 }
 
 # Convert images to video
-ffmpeg -framerate 1 -pattern_type glob -i "${image_folder}/*.png" -c:v libx264 -r 30 -pix_fmt yuv420p "${output_folder}/output.mp4"
+ffmpeg -framerate 30 -pattern_type glob -i "${image_folder}/*.png" -c:v libx264 -r 30 -pix_fmt yuv420p "${output_folder}/output.mp4"
 
 echo "Video created in ${output_folder}/output.mp4"
