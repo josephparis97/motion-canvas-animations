@@ -17,7 +17,7 @@ export default makeScene2D(function* (view) {
 
   yield* codeRef().edit(1.2, false)`System.out.println(${insert('"J\'étais développeur"')});`;
   yield* waitFor(0.6);
-  yield* codeRef().edit(1.2)`System.out.println(${edit('"J\'étais développeur"', '"Je suis maintenant vidéaste"')});`;
+  yield* codeRef().edit(1.2,false)`System.out.println(${edit('"J\'étais développeur"', '"Je suis maintenant vidéaste"')});`;
   yield* waitFor(0.6);
  
 }); 
