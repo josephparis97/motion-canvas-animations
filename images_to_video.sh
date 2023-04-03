@@ -20,6 +20,13 @@ if [ ! -d "$output_folder" ]; then
   exit 1
 fi
 
+# Check if FFmpeg is installed, and install it if not
+command -v ffmpeg >/dev/null 2>&1 || {
+  echo "FFmpeg not found. Installing FFmpeg..."
+  sudo apt-get update
+  sudo apt-get install -y ffmpeg
+}
+
 # Convert images to video
 ffmpeg -framerate 1 -pattern_type glob -i "${image_folder}/*.png" -c:v libx264 -r 30 -pix_fmt yuv420p "${output_folder}/output.mp4"
 
